@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jameela 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .message {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 50px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 90%;
+      transition: all 0.3s ease;
+    }
+
+    .message h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffccdd;
+    }
+
+    .message p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #ff66b3;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #ff3385;
+    }
+
+    .heart-burst {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 2s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+    }
+
+    .response {
+      font-size: 1.8rem;
+      color: #ffb3d9;
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      white-space: pre-line;
+    }
+
+    .response.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="message" id="messageBox">
+    <h1>Will you be my girlfriend,<br>Jameela Sparks?</h1>
+    <p>💖 You’ve bloomed in my heart like these roses 💖</p>
+    <div class="buttons">
+      <button onclick="respond()">Yes</button>
+      <button onclick="respond()">Of course!</button>
+    </div>
+    <div class="response" id="responseMessage">
+In your eyes, I find my peace, my flame,  
+A gentle strength wrapped in a tender name.  
+Through every storm, you choose to stay—  
+Jameela, my heart, in you I pray. 🥰
+    </div>
+  </div>
+  <div class="heart-burst" id="heartBurst"></div>
+
+  <script>
+    function respond() {
+      document.getElementById('responseMessage').classList.add('show');
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        document.getElementById('heartBurst').appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
